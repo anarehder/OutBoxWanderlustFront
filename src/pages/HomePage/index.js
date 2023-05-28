@@ -34,7 +34,7 @@ export default function HomePage() {
         console.log(city);
         navigate("/tickets")
     }
-
+    console.log(city);
     return (
         <HomePageContainer>
             <OutboxLogo />
@@ -43,7 +43,7 @@ export default function HomePage() {
                     <select value={city} onChange={e => setCity(e.target.value)}>
                         <option value="0">Selecione a cidade de destino</option>
                         {listaCidades.map((item) =>
-                            <option key={item.name} value={item.id}>{item.name}</option>
+                            <option key={item.name} value={[item.id, item.name]}>{item.name}</option>
                         )}
                     </select>
                     <button onClick={handleCreate}>
