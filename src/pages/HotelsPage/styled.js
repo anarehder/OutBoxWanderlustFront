@@ -4,18 +4,25 @@ import { textSecondaryColor, mainColorButton, mainColorLight } from "../../const
 export const TicketsPageContainer = styled.div`
   margin: 0 10px;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: ${textSecondaryColor};
   font-size: 40px;
   padding-bottom: 15px;
+  position: relative;
 `
 
 export const Voltar = styled.button`
-  position: fixed;
+  position: absolute;
   top: 10%;
-  right: 25%;
+  right: 24%;
+`
+
+export const Passagens = styled.button`
+  position: absolute;
+  top: 10%;
+  right: 30%;
 `
 
 export const GifContainer = styled.div `
@@ -50,9 +57,10 @@ width: 300px;
   img {
     width: 200px;
     margin: 0 auto;
+    margin-bottom: 10px;
   }
   h2 {
-    margin-top: 5px;;
+    margin-top: 10px;
     text-align: center;
   }
 `

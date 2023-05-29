@@ -5,7 +5,7 @@ export const HomePageContainer = styled.div`
   margin: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
   align-items: center;
   font-family: 'Dosis', sans-serif;
   font-size: 25px;
@@ -16,6 +16,7 @@ export const HomePageContainer = styled.div`
   div{
     flex-direction: row;
     gap: 10px;
+    min-height: 150px;
   }
   button{
     margin-left: 15px;
@@ -35,6 +36,7 @@ export const GifContainer = styled.div `
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 150px;
   img {
     width: 150px;
   }
