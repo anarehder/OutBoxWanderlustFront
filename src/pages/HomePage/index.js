@@ -28,9 +28,14 @@ export default function HomePage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    async function handleCreate(e) {
+    async function handleCreatePassagem(e) {
         e.preventDefault();
         navigate("/tickets/" + city)
+    }
+
+    function handleCreateHotel(e) {
+        e.preventDefault();
+        navigate("/hotels/" + city)
     }
 
     return (
@@ -46,8 +51,11 @@ export default function HomePage() {
                             </option>
                         )}
                     </select>
-                    <button onClick={handleCreate}>
-                        Ir
+                    <button onClick={handleCreatePassagem}>
+                        Buscar Passagem
+                    </button>
+                    <button onClick={handleCreateHotel}>
+                        Buscar Hotel
                     </button>
                 </div>
             }

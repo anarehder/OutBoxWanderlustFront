@@ -5,6 +5,8 @@ import TicketsPage from "./pages/TicketsPage";
 import { mainColor } from "./constants/colors.js";
 import { CityContext } from "./contexts/CityContext.js";
 import { useState } from "react";
+import OneTicketPage from "./pages/OneTicketPage";
+import HotelsPage from "./pages/HotelsPage";
 
 export default function App() {
   const [city, setCity] = useState(CityContext);
@@ -16,9 +18,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/tickets/:cityID" element={<TicketsPage />} />
-{/*             <Route path="/tickets/city/:ticketID" element={<TicketsPage />} />
+            <Route path="/tickets/city/:ticketID" element={<OneTicketPage />} />
             <Route path="/hotels/:cityID" element={<HotelsPage />} />
-            <Route path="/hotels/city/:hotelID" element={<TicketsPage />} />  */}           
+            {/* <Route path="/hotels/city/:hotelID" element={<TicketsPage />} />   */}
           </Routes>
         </BrowserRouter>
       </CityContext.Provider>

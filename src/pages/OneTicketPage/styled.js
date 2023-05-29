@@ -32,7 +32,7 @@ export const Tickets = styled.div  `
   width: calc(100vw - 275px);
   gap: 25px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 `
 
@@ -45,39 +45,7 @@ width: 300px;
     margin: 0 auto;
   }
   h2 {
-    margin-top: 5px;;
+    margin-top: 15px;
     text-align: center;
-  }
-`
-
-export const Filter = styled.div  `
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  input{
-    width: 200px;
-    margin: 20px;
-  }
-
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
-    height: 5px;
-    background: ${mainColorLight};
-    border: none;
-    border-radius: 3px;
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: ${mainColorButton};
-    margin-top: -4px;
   }
 `
