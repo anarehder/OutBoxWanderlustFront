@@ -7,6 +7,7 @@ import { CityContext } from "./contexts/CityContext.js";
 import { useState } from "react";
 import OneTicketPage from "./pages/OneTicketPage";
 import HotelsPage from "./pages/HotelsPage";
+import OneHotelPage from "./pages/OneHotelPage";
 
 export default function App() {
   const [city, setCity] = useState(CityContext);
@@ -20,7 +21,7 @@ export default function App() {
             <Route path="/tickets/:cityID" element={<TicketsPage />} />
             <Route path="/tickets/city/:ticketID" element={<OneTicketPage />} />
             <Route path="/hotels/:cityID" element={<HotelsPage />} />
-            {/* <Route path="/hotels/city/:hotelID" element={<TicketsPage />} />   */}
+            <Route path="/hotels/city/:hotelID" element={<OneHotelPage />} />  
           </Routes>
         </BrowserRouter>
       </CityContext.Provider>
@@ -31,5 +32,5 @@ export default function App() {
 const PagesContainer = styled.div`
   background-color:  ${mainColor};
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `

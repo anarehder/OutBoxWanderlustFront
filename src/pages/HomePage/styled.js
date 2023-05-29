@@ -9,6 +9,7 @@ export const HomePageContainer = styled.div`
   align-items: center;
   font-family: 'Dosis', sans-serif;
   font-size: 25px;
+  padding-bottom: 15px;
   h1 {
     color: ${textPrimaryColor};
   }

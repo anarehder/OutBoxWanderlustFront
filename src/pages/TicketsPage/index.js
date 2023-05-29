@@ -1,12 +1,13 @@
 import OutboxLogo from "../../components/OutboxLogo.js";
-import { TicketsPageContainer, GifContainer, TicketsAll, Tickets, Filter, OneTicket } from "./styled";
+import { TicketsPageContainer, GifContainer, TicketsAll, Tickets, Filter, OneTicket, Voltar } from "./styled";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import gif from "../../assets/images/loading-2.gif";
 import voo from "../../assets/images/aviao1.png";
 import axios from "axios";
 
-export default function HomePage() {
+export default function TicketsPage() {
     const { cityID } = useParams();
     const navigate = useNavigate();
     const [listaPassagens, setListaPassagens] = useState([]);
@@ -19,8 +20,8 @@ export default function HomePage() {
     useEffect(() => {
         setCarregando(true);
         let urlFinal;
-        if (!chooseMax && !chooseMin){
-            urlFinal= `${process.env.REACT_APP_API_URL}/tickets/city/${cityID}`;
+        if (!chooseMax && !chooseMin) {
+            urlFinal = `${process.env.REACT_APP_API_URL}/tickets/city/${cityID}`;
         }
         const promise = axios.get(urlFinal);
         promise.then(resposta => {
@@ -38,23 +39,26 @@ export default function HomePage() {
     function handleMin(event) {
         setChooseMin(event.target.value);
     }
-    
+
     function handleMax(event) {
         setChooseMax(event.target.value);
     }
-    if (listaPassagens.length !== 0){
+    if (listaPassagens.length !== 0) {
         destino = listaPassagens[0].destiny;
         min = values[0].min;
         max = values[0].max;
     }
-    
-    function verDetalhes (id){
+
+    function verDetalhes(id) {
         navigate("/tickets/city/" + id);
     }
 
     return (
         <TicketsPageContainer>
             <OutboxLogo />
+            <Link to={"/"}>
+                <Voltar> Voltar </Voltar>
+            </Link>
             {carregando === true ? <GifContainer> <img src={gif} alt="gif" /></GifContainer> :
                 <>
                     <h1> Passagens para {destino}</h1>
@@ -62,7 +66,7 @@ export default function HomePage() {
                         <Filter> MENU
                             <form action="/action_page.php">
                                 <label htmlFor="pmin">Preço Mínimo</label>
-                                <input type="range" id="pmin" name="pmin" min={min} max={max} onChange={handleMin}/>
+                                <input type="range" id="pmin" name="pmin" min={min} max={max} onChange={handleMin} />
                                 <label htmlFor="pmax">Preço Máximo</label>
                                 <input type="range" id="pmax" name="pmax" min={min} max={max} onChange={handleMax} />
                                 <button type="submit"> Filtrar </button>
@@ -71,10 +75,10 @@ export default function HomePage() {
                         <Tickets>
                             {listaPassagens.map((item) =>
                                 <OneTicket key={item.id}>
-                                    <img src={voo} alt="aviao" onClick={() => verDetalhes(item.id)}/>
+                                    <img src={voo} alt="aviao" onClick={() => verDetalhes(item.id)} />
                                     <h2> Data Partida: {new Date(item.depDate1).getDate()}/{new Date(item.depDate1).getMonth()}/{new Date(item.depDate1).getFullYear()}</h2>
                                     <h2> Hora Partida: {new Date(item.depDate1).getUTCHours()}h {new Date(item.depDate1).getMinutes()} min</h2>
-                                    <h2> Preço: R$ {item.price.replace(".",",")}</h2>
+                                    <h2> Preço: R$ {item.price.replace(".", ",")}</h2>
                                     <h2 >Local Partida: {item.origin}</h2>
                                     <h2 >Classe: {item.class}</h2>
                                 </OneTicket>

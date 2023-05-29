@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { textSecondaryColor, mainColorButton, mainColorLight } from "../../constants/colors.js";
+import { textSecondaryColor } from "../../constants/colors.js";
 
 export const TicketsPageContainer = styled.div`
   margin: 0 10px;
@@ -38,20 +38,30 @@ export const Tickets = styled.div  `
   width: calc(100vw - 275px);
   gap: 25px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
-export const OneTicket = styled.div  `
-display: flex;
-flex-direction: column;
-width: 300px;
+export const Imagens = styled.div`
+  display: flex;
+  gap: 25px;
   img {
-    width: 200px;
+    width: 250px;
     margin: 0 auto;
+  }
+`
+
+export const OneTicket = styled.div  `
+  display: flex;
+  gap:40px;
+  text-align: start;
+  div{
+    width: 350px;
+    border: 2px solid ${textSecondaryColor};
+    padding: 10px;
   }
   h2 {
     margin-top: 15px;
-    text-align: center;
   }
 `

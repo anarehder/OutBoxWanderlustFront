@@ -9,6 +9,13 @@ export const TicketsPageContainer = styled.div`
   align-items: center;
   color: ${textSecondaryColor};
   font-size: 40px;
+  padding-bottom: 15px;
+`
+
+export const Voltar = styled.button`
+  position: fixed;
+  top: 10%;
+  right: 25%;
 `
 
 export const GifContainer = styled.div `
