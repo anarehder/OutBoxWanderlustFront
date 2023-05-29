@@ -15,7 +15,10 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/tickets" element={<TicketsPage />} />
+            <Route path="/tickets/:cityID" element={<TicketsPage />} />
+{/*             <Route path="/tickets/city/:ticketID" element={<TicketsPage />} />
+            <Route path="/hotels/:cityID" element={<HotelsPage />} />
+            <Route path="/hotels/city/:hotelID" element={<TicketsPage />} />  */}           
           </Routes>
         </BrowserRouter>
       </CityContext.Provider>

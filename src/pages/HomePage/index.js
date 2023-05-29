@@ -21,7 +21,6 @@ export default function HomePage() {
         promise.then(resposta => {
             setlistaCidades(resposta.data);
             setCarregando(false);
-            console.log(listaCidades)
         })
         promise.catch(erro => {
             alert(erro.response.data);
@@ -31,19 +30,20 @@ export default function HomePage() {
 
     async function handleCreate(e) {
         e.preventDefault();
-        console.log(city);
-        navigate("/tickets")
+        navigate("/tickets/" + city)
     }
-    console.log(city);
+
     return (
         <HomePageContainer>
             <OutboxLogo />
             {carregando === true ? <GifContainer> <img src={gif} alt="gif" /></GifContainer> :
                 <div>
-                    <select value={city} onChange={e => setCity(e.target.value)}>
+                    <select value={city} onChange={e => setCity(e.target.value) }>
                         <option value="0">Selecione a cidade de destino</option>
                         {listaCidades.map((item) =>
-                            <option key={item.name} value={[item.id, item.name]}>{item.name}</option>
+                            <option key={item.name} value={item.id}>
+                                {item.name}
+                            </option>
                         )}
                     </select>
                     <button onClick={handleCreate}>

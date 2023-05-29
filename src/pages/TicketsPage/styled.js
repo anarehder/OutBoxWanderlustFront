@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { textSecondaryColor } from "../../constants/colors.js";
+import { textSecondaryColor, mainColorButton, mainColorLight } from "../../constants/colors.js";
 
 export const TicketsPageContainer = styled.div`
   margin: 0 10px;
@@ -34,19 +34,56 @@ export const Tickets = styled.div  `
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  div{
-    width: 300px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: red;
+`
+
+export const OneTicket = styled.div  `
+display: flex;
+flex-direction: column;
+width: 300px;
+  img {
+    width: 200px;
+    margin: 0 auto;
+  }
+  h2 {
+    margin-top: 5px;;
+    text-align: center;
   }
 `
 
 export const Filter = styled.div  `
   width: 250px;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 30px;
+  input{
+        width: 200px;
+        margin: 20px;
+    }
+    input[type=range]{
+      -webkit-appearance: none;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+      width: 300px;
+      height: 5px;
+      background: ${mainColorLight};
+      border: none;
+      border-radius: 3px;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: ${mainColorButton};
+      margin-top: -4px;
+  }
 `
+/* 
+export const mainColor = "#333333";
+export const textSecondaryColor = "#FEFEE2"; */
